@@ -8,6 +8,7 @@ font-family: 'Inter', system-ui;
 }
 
 nav{
+  position: relative;
 padding:24px;
  width:100%;
  max-width:1200px;
@@ -17,6 +18,8 @@ padding:24px;
 }
 .logo__img{
 width:100%;
+height:100%;
+border-radius:50%;
 }
 .logo{
 max-width:150px;
@@ -124,8 +127,54 @@ display:flex;
  width:100%;
  position:relative;
  max-width:700px;
+} 
+.Movies__image{
+  max-width:200px;
+  animation-name:move;
+  animation-duration:30000ms;
+  animation-iteration-count:all  linear ease ;
+   animation-fill-mode: forwards;
 }
+@keyframes move{
+  100%{ 
+      transform:translateX(-1500%);
+    }
+  0%{
+      transform:translateX(500%);
+     }
+}
+.Movie__image{
+  animation-name:movieAn;
+  animation-duration:10000ms;
+  animation-iteration-count:all  linear ease ; 
+}
+@keyframes movieAn{
+  50%{ 
+      transform:translateX(40%);
+    }
+  0%{
+      transform:translateX(500%);
+     }
+}
+.MoveHalf__img{
 
+  animation-name:movehalf;
+  animation-duration:10000ms;
+  animation-iteration-count:all infinite linear ease ; 
+  animation-fill-mode: forwards;
+}
+@keyframes movehalf{
+  50%{ 
+      transform:translateX(-500%);
+    }
+  0%{
+      transform:translateX(50%);
+     }
+}
+.movie_img{
+ width:50%;
+ padding:12px;
+}
 .search{
   padding:10px;
 }
@@ -182,16 +231,25 @@ padding:0 15px 0 25px;
  border-color: rgb(96, 48, 177);
 
 }
+ 
 .btn:hover{
   opacity:0.8;
  background-color:#ff328f;
 }
-.poject__img
-{
-  display:flex;
-  max-width:700px;
-  margin-left:25%;
-  position:fixed;
+.img-bg{
+  width:100%;
+}
+
+.project__img
+{ 
+  position:relative;
+  width:100%;
+  max-width:500px;
+   position:fixed;
+   background-image:url('/Assets/FSE_img.png');
+   background-repeat:no-repeat;
+   background-size:calc(100%);
+   margin-left:30%;
   margin-bottom:20px;
 }
 .fa-spinner{
@@ -217,4 +275,176 @@ padding:0 15px 0 25px;
 }
 .fes_img{
  width:100%;
+ 
+}
+.btn__menu {
+  position: relative;
+  background-color:transparent;
+  font-size:40px;
+  border:none;
+  color: #7342d6;
+  display:none; 
+}
+.menu--open {
+  max-height:100vh;
+  overflow:hidden;
+}
+.menu--open .menu__backdrop {
+  visibility:visible;
+  opacity: 1;
+  transform: translate(0);
+}
+.btn__menu--close {
+  position:absolute;
+  top: 10px;
+  right: 20px;
+  padding: 8px;
+  color: white;
+}
+ .menu_links{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+ }
+ .menu__list{
+  padding:32px 0;
+ }
+ .menu__link{
+  font-size:40px;
+  color:white;
+ }
+
+ .btn__menu {
+  background-color: transparent;
+  font-size: 40px;
+  border: none;
+  color: #7342d6;
+  display: none;
+}
+.menu__backdrop{
+  position: absolute;
+  background-color: #242424;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  visibility: hidden;
+  transition: all 300ms ease;
+  opacity: 0;
+  transform: translate(100%);
+}
+
+
+/* SMALL PHONES, LARGE SMARTPHONES */
+@media (max-width: 768px) {
+ 
+  .header__title{
+   font-size:32px;
+  }
+  .menu__backdrop{
+    background-color:white;
+    
+
+  }
+  .searchInput__wrapper{
+    width:100% ;
+
+  }
+ .menu__link{
+   font-size:32px;
+   color: #7342d6;
+  }
+  .menu__list{
+   list-style-type:none;
+   font-size:20px;
+  ;
+  }
+  .project__img{
+    top:70%;
+    margin:auto;
+    left:1%;
+  }
+  .btn{
+   width:100%;
+   height:50px;
+  }
+  .fes_img{
+    width:100%;
+  }
+  .searchInput__wrapper{
+    display:flex;
+    flex-direction:column;
+    height:50px;
+
+  }
+  .searchInput{
+    height:50px;
+  }
+  .search{
+    width:100%;
+    font-size:20px;
+     
+  }
+  .nav__links {
+   display: none;
+  }
+  .header__sub-title{
+    font-size:23px;
+  }
+}
+/* SMALL PHONES, LARGE SMARTPHONES */
+@media (max-width: 550px) {
+  .header__title{
+    font-size:32px;
+   }
+   .menu__backdrop{
+     background-color:white;
+     
+ 
+   }
+  .menu__link{
+    font-size:32px;
+    color: #7342d6;
+   }
+   .menu__list{
+    list-style-type:none;
+    font-size:20px;
+   ;
+   }
+   .project__img{
+     top:70%;
+     margin:auto;
+     left:1%;
+   }
+  .btn__menu {
+    display: block;
+  }
+  .project__img{
+    margin:auto;
+  }
+  .fes_img{
+    width:100%;
+  }
+  .nav__links {
+   display: none;
+  }
+  .header__title{
+
+    font-size:24px;
+  }
+  .btn{
+    width:100%;
+  }
+  
+ 
+  .searchInput__wrapper{
+    display:flex;
+    flex-direction:column;
+    height:50px;
+
+  }
 }
