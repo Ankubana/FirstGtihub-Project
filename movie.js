@@ -40,10 +40,11 @@ function Movies(userData)
 }
 
 async function searchMovie(event){
+  event.preventDefault()
       let str=event.target.value
            str=str.replace(/\s/g,'');
            console.log(str) 
-           if (str==="Fast" || str==="fast")
+           if (((str==="Fast" || str==="fast")) ||((str==="Fast" || str==="fast")&& event.keyCode===13))
            {
             const UserListElem=document.querySelector(".movies__project")
             UserListElem.innerHTML= 
@@ -68,7 +69,6 @@ async function searchMovie(event){
                <figure class="project__img" >
                  <i class="fas fa-spinner"></i>
                </div></div>
-            
             </section>
            `
      const users=await(fetch("https://omdbapi.com/?apikey=4cfe7eb4&s=fast"))
@@ -86,6 +86,25 @@ async function searchMovie(event){
        </div> 
        `
    }).join("")   
-           }
-}
+           }else{
+           const users=await(fetch("https://omdbapi.com/?apikey=4cfe7eb4&s=fast"))
+           const usersData=await users.json()
+           const UserListEl=document.querySelector(".project__img")
+             console.log(usersData)
+             UserListEl.innerHTML=usersData.Search.slice(0,6).map((userData)=>{
+               const str2 = userData.Title.replace(/\s/g,'');
+              if (str===str2)
+              {
+       return`<div class="project__img--bg" class="fes_img" >
+              <figure class="Movie__image">
+             <img src="${userData.Poster}" alt="" class=""style="width:30%">
+             </figure>
+             <div ><span class="Movie__title">Title</span>:${userData.Title}</div>
+              <div><span class="Movie__year">Year:</span>${userData.Year}</div>
+               <div class=Movie__Type><span class="Movie__type">Type:</span>${userData.Type}</div>
+             </div> 
+             `
+         }}).join("")  
+
+}}
 searchMovie()
