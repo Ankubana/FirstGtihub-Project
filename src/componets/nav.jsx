@@ -38,10 +38,10 @@
          <li className="menu__list"> 
          <Link to="" className="menu__link">Home</Link> </li>
             <li className="menu__list"> 
-        <Link to="/Books"className="menu__link">Books</Link>
+        <Link to="/books"className="menu__link">Books</Link>
       </li> 
        <li className="menu__list"> 
-        <Link to="/Cart"className="menu__link">Cart</Link>
+        <Link to="/cart"className="menu__link">Cart</Link>
        </li> 
       </ul>
          </div>
