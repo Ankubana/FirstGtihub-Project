@@ -4,6 +4,7 @@ import React from "react";
 import Rating from "./Rating";
 import Price from "./Price"
 const Book=({book})=>{
+
     return(
    
         <div className="book">
