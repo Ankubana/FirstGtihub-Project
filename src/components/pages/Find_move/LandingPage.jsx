@@ -8,21 +8,24 @@ import { Link } from "react-router-dom";
 import logo from "../Find_move/Assets/blinker-logo.png"
 import { keyboard } from "@testing-library/user-event/dist/keyboard/index.js";
 
- function openMenu() {
-  document.body.classList += " menu--open"
-}
-function closeMenu() {
-  document.body.classList.remove('menu--open')
-}
+
 const LandingPage=()=>{
 const [userdata,setUserData]=useState()
 const [inputvalue,setInputvalue]=useState("")
 const [spinner,setSpinner]=useState("fas fa-spinner")
-const handlechange=(event)=>{
-
-  setInputvalue(event.target.value)
+ async function handlechange(event){
+    const value=event.target.value
+     console.log(value)
+    if ((event.key ==='Enter')||((value==="Fast")||value==="fast")) {
+     setInputvalue(event.target.value)
+   const{data}=await axios.get("https://omdbapi.com/?apikey=4cfe7eb4&s=fast")
+  console.log(data)
+  setUserData(data) 
+  setSpinner("no_spinner")
+    }
 }  
- async function SearchMove(){
+ async function SearchMove(event){
+  setInputvalue(event.target.value)
   const{data}=await axios.get("https://omdbapi.com/?apikey=4cfe7eb4&s=fast")
   console.log(data)
   setUserData(data) 
@@ -82,7 +85,8 @@ const handlechange=(event)=>{
 </nav>
      <div className="header"> 
      <div className="searchInput__wrapper">
-     <input  type="text" className="inputsearch"   placeholder="Search by title"  onClick={handlechange}>
+     <input  type="text" className="inputsearch"   placeholder="Search by title"  onKeyDown={handlechange}
+      >
     </input>
   <button className="button_search"><FontAwesomeIcon icon="fas fa-search"  className="fa-search" onClick={SearchMove} /></button>    
     </div>
