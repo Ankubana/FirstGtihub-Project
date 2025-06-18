@@ -9,7 +9,6 @@ import Home from "./components/pages/Home/Home.jsx";
 import "./index.js"
 import Movie_description from "./components/pages/Home/Movie_description.jsx";
 import selecteddMovie from "./components/pages/Home/selectedMove.jsx";
-import Contact from "./components/pages/Home/contact.jsx";
 
 
  //https://omdbapi.com/?apikey=4cfe7eb4&s=fast
@@ -20,7 +19,6 @@ function App() {
        <Routes>
       <Route path="/"  element={<Home/>}/>
       <Route path="/LandingPage" element={<LandingPage/>}/>
-      <Route path="/contact" element={<Contact/>}/>
       <Route path="/Movie_description/:imdbID"  element={<Movie_description/>}/>
       
       </Routes>

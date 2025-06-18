@@ -34,9 +34,9 @@ const NavLink = () => {
             </Link>
           </li>
           <li>
-            <Link to="contact" className="nav__link--primary">
+            <a href="#" className="nav__link--primary">
               Contact
-            </Link>
+            </a>
           </li>
         </ul>
         
