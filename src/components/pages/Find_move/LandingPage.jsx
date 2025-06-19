@@ -12,23 +12,26 @@ import { keyboard } from "@testing-library/user-event/dist/keyboard/index.js";
 const LandingPage=()=>{
 const [userdata,setUserData]=useState()
 const [inputvalue,setInputvalue]=useState("")
+const [submittedValue,setSubmittedValue]=useState()
 const [spinner,setSpinner]=useState("fas fa-spinner")
  async function handlechange(event){
     const value=event.target.value
      console.log(value)
-    if ((event.key ==='Enter')&&((value==="Fast")||value==="fast")) {
      setInputvalue(event.target.value)
-   const{data}=await axios.get("https://omdbapi.com/?apikey=4cfe7eb4&s=fast")
+    if (event.key ==='Enter') {
+    const{data}=await axios.get(`https://omdbapi.com/?apikey=4cfe7eb4&s=${value}`)
   console.log(data)
   setUserData(data) 
+  setSubmittedValue(inputvalue)
   setSpinner("no_spinner")
     }
 }  
- async function SearchMove(event){
-  setInputvalue(event.target.value)
-  const{data}=await axios.get("https://omdbapi.com/?apikey=4cfe7eb4&s=fast")
+ async function SearchMove(){
+    
+  const{data}=await axios.get(`https://omdbapi.com/?apikey=4cfe7eb4&s=${inputvalue}`)
   console.log(data)
   setUserData(data) 
+  setSubmittedValue(inputvalue)
   setSpinner("no_spinner")
 }
   const [isOpen, setIsOpen] = useState(false);
@@ -84,11 +87,13 @@ const [spinner,setSpinner]=useState("fas fa-spinner")
  )}
 </nav>
      <div className="header"> 
+      
      <div className="searchInput__wrapper">
-     <input  type="text" className="inputsearch"   placeholder="Search by Fast"  onKeyDown={handlechange}>
+     <input  type="text" className="inputsearch"  value={inputvalue}  placeholder="Search by Fast" onChange={handlechange}  onKeyDown={handlechange}>
     </input>
   <button className="button_search"><FontAwesomeIcon icon="fas fa-search"  className="fa-search" onClick={SearchMove} /></button>    
     </div>
+  
  </div>
  </section>
  <div className="line_drown">
@@ -102,7 +107,7 @@ const [spinner,setSpinner]=useState("fas fa-spinner")
  <section className="movies__project">
 <div data-v-66aecfa2="" data-v-040c1d60="" id="filter" className="content-wrapper justify-between">
 <h1 data-v-66aecfa2="" className="search-info">
-<span data-v-66aecfa2="" className="black-txt">Search results:</span><span className="text_purple">{inputvalue}</span>
+<span data-v-66aecfa2="" className="black-txt">Search results:</span><span className="text_purple">{submittedValue}</span>
 </h1><div data-v-66aecfa2="" className="price-filter flex flex-col">
 <h2 data-v-66aecfa2=""><span data-v-66aecfa2=""className="black-txt" style={{marginRright:8}}>Price range:</span> $0 to $100,000 </h2>
 <div data-v-66aecfa2="" className="slider-wrapper"><div data-v-66aecfa2="" role="slider" aria-valuemin={0} aria-valuemax={100000} aria-orientation="horizontal" className="el-slider" aria-valuetext={0-100000} aria-label="slider between 0 and 100000">
@@ -121,7 +126,7 @@ const [spinner,setSpinner]=useState("fas fa-spinner")
  </section>
    <FontAwesomeIcon icon={spinner} className={spinner}/>
    <div className="project__select--move">
-  <SELECTMOVE selectMovie={userdata}  />
+  <SELECTMOVE selectMovie={userdata} inputval={submittedValue} />
   </div>
  </>
     )

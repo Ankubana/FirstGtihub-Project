@@ -347,7 +347,35 @@ align-items:center;
  justify-content:center;
   padding:0 10px;
 }
+.movie_card {
+  width:150px;
+  text-align: center;
+  margin: 20px;
+}
 
+.project__images {
+  width: 100%;
+  border-radius:5px;
+  cursor: pointer;
+}
+
+.movie_Desc {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #333;
+}
+.search_value{
+ margin-left:20%;
+ font-size:24px;
+ 
+}
+.Result{
+ color:#333;
+}
+.value{
+  color: #7342d6;
+
+}
 .movie-details .row {
   display: grid;
   grid-template-columns:100px 1fr; /* adjust label width */
