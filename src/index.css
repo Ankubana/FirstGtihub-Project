@@ -6,9 +6,12 @@ margin:0;
 box-sizing:border-box;
 font-family: 'Inter', system-ui;
 }
-body{
-  overflow: hidden;
-
+* navigation */
+  html, body {
+  height: 100%;
+  margin: 0;
+  overflow-y:scroll;
+  width:100vw;
 }
 nav{
  position:relative;
@@ -58,6 +61,7 @@ border-radius:40px solid;
  font-size:20px;
  background-color: #6600ff;
 }
+
  .contact{
   display:flex;
   align-items:center;

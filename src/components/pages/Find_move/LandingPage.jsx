@@ -16,11 +16,9 @@ const [submittedValue,setSubmittedValue]=useState()
 const [spinner,setSpinner]=useState("fas fa-spinner")
  async function handlechange(event){
     const value=event.target.value
-     console.log(value)
      setInputvalue(event.target.value)
     if (event.key ==='Enter') {
     const{data}=await axios.get(`https://omdbapi.com/?apikey=4cfe7eb4&s=${value}`)
-  console.log(data)
   setUserData(data) 
   setSubmittedValue(inputvalue)
   setSpinner("no_spinner")
@@ -29,7 +27,6 @@ const [spinner,setSpinner]=useState("fas fa-spinner")
  async function SearchMove(){
     
   const{data}=await axios.get(`https://omdbapi.com/?apikey=4cfe7eb4&s=${inputvalue}`)
-  console.log(data)
   setUserData(data) 
   setSubmittedValue(inputvalue)
   setSpinner("no_spinner")
@@ -96,10 +93,10 @@ const [spinner,setSpinner]=useState("fas fa-spinner")
   
  </div>
  </section>
+ <div className="container">
  <div className="line_drown">
   <div className="moving_line"></div>
 </div>
-
   <script src="https://kit.fontawesome.com/ad0b70db15.js" crossOrigin="anonymous"></script>
 
  <div data-v-040c1d60="" className="md-progress-bar md-indeterminate md-theme-default" style={{position:"absolute", top:"0px", left:"0px",right:"0px"}}><div className="md-progress-bar-track"></div> <div className="md-progress-bar-fill"></div> <div className="md-progress-bar-buffer"></div></div>
@@ -127,6 +124,7 @@ const [spinner,setSpinner]=useState("fas fa-spinner")
    <FontAwesomeIcon icon={spinner} className={spinner}/>
    <div className="project__select--move">
   <SELECTMOVE selectMovie={userdata} inputval={submittedValue} />
+  </div>
   </div>
  </>
     )

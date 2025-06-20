@@ -22,7 +22,6 @@ function App() {
       <Route path="/LandingPage" element={<LandingPage/>}/>
       <Route path="/contact" element={<Contact/>}/>
       <Route path="/Movie_description/:imdbID"  element={<Movie_description/>}/>
-      
       </Routes>
       
     </div>

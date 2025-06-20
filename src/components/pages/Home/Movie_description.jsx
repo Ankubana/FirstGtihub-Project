@@ -5,12 +5,11 @@ import axios from "axios";
 const MovieDesc=({idmb})=>{
 const [movieID,setMovieID]=useState([])
   const { imdbID } = useParams();
- console.log(imdbID)
   Search(idmb)
   async function Search(idmbId) {
  const data=await axios.get(`https://omdbapi.com/?apikey=4cfe7eb4&i=${imdbID }`)
       setMovieID(data)
-       console.log(movieID)
+      
    }
         return(
             <>

@@ -10,13 +10,14 @@ import SelectMovie from "./selectedMove";
     const [userData,setUserData]=useState(null)
     const [movephoto,setMoviephoto]=useState(null)
      const [moviesData,setMoviesData]=useState()
-     const[submittedValue,setSubmittedValue]=useState('')
+     const[submittedValue,setSubmittedValue]=useState("")
      const[result,setResult]=useState('')
      const [inputvalue,setInputvalue]=useState("")
     const [search,setSearch]=useState("fas fa-search")
     const [spinner,setSpinner]=useState(null)
     const [btn,setBtn]=useState("btn")
     async  function onloading(event){
+      console.log(submittedValue)
      const{data}=await axios.get(`https://omdbapi.com/?apikey=4cfe7eb4&s=${submittedValue}`)
          setUserData(data?.Search?.map((data)=>data))
          setMoviesData(data)
@@ -24,7 +25,7 @@ import SelectMovie from "./selectedMove";
          setSpinner("fa-spinner")
          setBtn("btn_bg")
          setInputvalue(submittedValue)
-         setResult("Search results :")
+         setResult("Search results:")
       } 
      async function getValue(event)
       {    setSubmittedValue(event.target.value)
@@ -69,14 +70,14 @@ import SelectMovie from "./selectedMove";
   
   {submittedValue?
   <>
-  <div className="search_value"> <span className="Result">{result}</span> <span className="value">{inputvalue}</span></div>
+  <div className="search_value"> <span className="Result">{result}</span> <span className="value">"{inputvalue}"</span></div>
    <div className="project__select--move">
   <SelectMovie selectMovie={moviesData} inputval={submittedValue} />
   </div>
   </>
    :
    <>
-   <Project movieSelected={userData} check={movephoto}/>  
+   <Project movieSelected={(userData)} check={movephoto}/>  
    </>
   }
   </section>

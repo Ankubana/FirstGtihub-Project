@@ -6,6 +6,10 @@ box-sizing:border-box;
 font-family: 'Inter', system-ui;
 }
 /* navigation */
+  html, body {
+  height: 100%;
+  margin: 0;
+}
 nav{
   max-width:1100px;
  display:flex;
@@ -617,7 +621,9 @@ z-index:2;
 
 /* SMALL PHONES, LARGE SMARTPHONES */
 @media (max-width: 768px) {
- 
+  .body{
+    height:100vh
+  }
   .header__title{
    font-size:32px;
   }
@@ -683,6 +689,9 @@ z-index:2;
 }
 /* SMALL PHONES, LARGE SMARTPHONES */
 @media (max-width: 550px) {
+    .body{
+    height:100vh
+  }
   .header__title{
     font-size:32px;
    }
