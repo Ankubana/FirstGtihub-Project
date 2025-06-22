@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import react from "react";
 import axios from "axios";
 import { Link,useNavigate } from "react-router-dom";
-import logo from "../Find_move/Assets/blinker-logo.png"
+import logo from "../Find_move/Assets/logo_image.jpg"
 import { keyboard } from "@testing-library/user-event/dist/keyboard/index.js";
 
 
@@ -96,7 +96,7 @@ const navigate=useNavigate()
 </nav>
      <div className="header"> 
      <div className="searchInput__wrapper">
-     <input  type="text" className="inputsearch"  value={inputvalue}  placeholder="Search by Fast" onChange={handlechange}  onKeyDown={handlechange}>
+     <input  type="text" className="inputsearch"  value={inputvalue}  placeholder="Search by title" onChange={handlechange}  onKeyDown={handlechange}>
     </input>
   <button className="button_search"><FontAwesomeIcon icon="fas fa-search"  className="fa-search" onClick={SearchMove} /></button>    
     </div>

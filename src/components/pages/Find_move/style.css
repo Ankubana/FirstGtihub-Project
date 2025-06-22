@@ -18,12 +18,15 @@ nav{
  padding:12px;
 }
 .logo__img{
-  height:80%;
   width: 80%;
   border-radius:50%;
+  height:50%;
 }
 .logo{
-max-width:70px;
+max-width:200px;
+display:flex;
+justify-content: center;
+align-items:center;
  
 }
 input{
@@ -101,16 +104,16 @@ list-style-type:none;
 #nav__header{
  width:100%;
 position:relative;
- background-image:url('/src/components/pages/Find_move/Assets/Movies__logo.jpeg');
+ background-image:url('/src/components/pages/Find_move/Assets/movie-theatre-png.png');
  background-position:100%;
  background-size:cover;
  background-repeat:no-repeat;
- height:300px;
+ height:200px;
 top: 0;
 left: 0;
 right: 0;
 bottom: 0;
-opacity:1;
+background-color:goldenrod;
 }
 .search-box-container{
   width:30%;
@@ -430,7 +433,8 @@ max-width:200px;
   margin-top: 15px;
 }
 .movies__project{
-  padding:20px;
+  padding:80px;
+  
 }
 .el-slider__button {
     width:16px;
@@ -619,6 +623,10 @@ z-index:2;
 }
 
 /* SMALL PHONES, LARGE SMARTPHONES */
+@media (max-width: 1068px) {
+ 
+}
+/* SMALL PHONES, LARGE SMARTPHONES */
 @media (max-width: 768px) {
   .body{
     height:100vh
@@ -686,6 +694,18 @@ z-index:2;
     font-size:23px;
   }
 }
+
+/* LARGE devices */
+@media (max-width: 1068px) {
+ 
+  .movies__project{
+   display: flex;
+   flex-direction: column;
+  }
+ }
+
+
+
 /* SMALL PHONES, LARGE SMARTPHONES */
 @media (max-width: 550px) {
     .body{
