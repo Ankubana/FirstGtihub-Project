@@ -8,8 +8,9 @@ import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
 import Home from "./components/pages/Home/Home.jsx";
 import "./index.js"
 import Movie_description from "./components/pages/Home/Movie_description.jsx";
-import selecteddMovie from "./components/pages/Home/selectedMove.jsx";
+import SelecteddMovie from "./components/pages/Home/selectedMove.jsx";
 import Contact from "./components/pages/Home/contact.jsx";
+import Landing from "./components/pages/Home/Landing.jsx";
 
 
  //https://omdbapi.com/?apikey=4cfe7eb4&s=fast
@@ -22,6 +23,7 @@ function App() {
       <Route path="/LandingPage" element={<LandingPage/>}/>
       <Route path="/contact" element={<Contact/>}/>
       <Route path="/Movie_description/:imdbID"  element={<Movie_description/>}/>
+       <Route path="/selectedMove" element={<SelecteddMovie/>}/>
       </Routes>
       
     </div>

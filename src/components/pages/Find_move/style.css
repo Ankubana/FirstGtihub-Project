@@ -97,12 +97,11 @@ list-style-type:none;
 }
 .header_section{
   max-width:1200px;
-
 }
 #nav__header{
  width:100%;
 position:relative;
- background-image:url('/src/Assets/movie_bg.jpeg');
+ background-image:url('/src/components/pages/Find_move/Assets/Movies__logo.jpeg');
  background-position:100%;
  background-size:cover;
  background-repeat:no-repeat;
@@ -259,7 +258,7 @@ line-height:1.5
   position: relative;
   max-width:1200px;
 }
-.project__select--move{
+.project__select--movie{
   width:100%;
   max-width:900px;
   display: flex;
@@ -644,7 +643,7 @@ z-index:2;
    font-size:20px;
   ;
   }
-  .project__select--move{
+  .project__select--movie{
    display:flex;
    flex-direction: column;
    

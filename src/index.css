@@ -28,9 +28,11 @@ height:100%;
 border-radius:50%;
 }
 .logo{
-max-width:150px;
-height:50px;
+  display:flex;
+  align-items:center;
+  width:100%;
 }
+
 .nav_link{
 padding:20px;
 list-style-type:none;
@@ -258,7 +260,20 @@ position: relative;
 
  
 }
-
+.text_purple{
+  color:#6600ff;
+  font-size:24px;
+}
+.card-row{
+  display: flex;
+  flex-wrap:wrap;     /* Allow wrapping if not enough space */
+  width:100%;
+  gap: 20px;           /* Space between cards */
+  justify-content:center;
+  max-width:900px; /* Or space-between, flex-start, etc. */
+  justify-content:center;
+  margin:auto;
+}
 .searchInput:hover{
     opacity:0.8;
     border-color:#4706a9; 

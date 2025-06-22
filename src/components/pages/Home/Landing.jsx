@@ -4,7 +4,7 @@
  import Project from "./Project";
 import { getValue } from "@testing-library/user-event/dist/utils";
 import SelectMovie from "./selectedMove";
-
+ import { Link,Navigate,useNavigate } from "react-router-dom";
 
     const Landing=()=>{
     const [userData,setUserData]=useState(null)
@@ -12,6 +12,8 @@ import SelectMovie from "./selectedMove";
      const [moviesData,setMoviesData]=useState()
      const[submittedValue,setSubmittedValue]=useState("")
      const[result,setResult]=useState('')
+     const[str,setStr]=useState()
+      const navigate=useNavigate()
      const [inputvalue,setInputvalue]=useState("")
     const [search,setSearch]=useState("fas fa-search")
     const [spinner,setSpinner]=useState(null)
@@ -19,25 +21,28 @@ import SelectMovie from "./selectedMove";
     async  function onloading(event){
       console.log(submittedValue)
      const{data}=await axios.get(`https://omdbapi.com/?apikey=4cfe7eb4&s=${submittedValue}`)
-         setUserData(data?.Search?.map((data)=>data))
+          setSpinner("fa-spinner")
+             setBtn("btn_bg")
+              setSearch("Remove_Search")
+               setInputvalue(submittedValue)
+            setTimeout(()=>{
+     setUserData(data?.Search?.map((data)=>data))
          setMoviesData(data)
-         setSearch("Remove_Search")
-         setSpinner("fa-spinner")
-         setBtn("btn_bg")
-         setInputvalue(submittedValue)
-         setResult("Search results:")
+         navigate("/selectedMove", {
+         state:{inputvalue:submittedValue,check:0,Data:data }});
+              },2000)
       } 
      async function getValue(event)
       {    setSubmittedValue(event.target.value)
          const value= event.target.value
           if( event.key==='Enter'){
          const{data}=await axios.get(`https://omdbapi.com/?apikey=4cfe7eb4&s=${value}`)
-         setMoviephoto(data?.Search?.map((data)=>data))
-           setMoviesData(data)
-          setInputvalue(submittedValue)
-           setResult("Search results:")
-
-         
+            setTimeout(()=>{
+     setUserData(data?.Search?.map((data)=>data))
+         setMoviesData(data)
+         navigate("/selectedMove", {
+         state:{inputvalue:value,check:0,Data:data }});
+              },2000)
 }
       }
   return(
@@ -68,18 +73,6 @@ import SelectMovie from "./selectedMove";
   </div>
   </div>
   
-  {submittedValue?
-  <>
-  <div className="search_value"> <span className="Result">{result}</span> <span className="value">"{inputvalue}"</span></div>
-   <div className="project__select--move">
-  <SelectMovie selectMovie={moviesData} inputval={submittedValue} />
-  </div>
-  </>
-   :
-   <>
-   <Project movieSelected={(userData)} check={movephoto}/>  
-   </>
-  }
   </section>
     
   </>

@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import logo from "./blinker-logo.png"
+import logo from "./logo_image.jpg"
 import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const NavLink = () => {
@@ -30,7 +30,7 @@ const NavLink = () => {
           </li>
           <li className="nav_link">
             <Link to="/LandingPage" className="link__hover--effect link__hover-effect--black">
-              Find your car
+              Find your movie
             </Link>
           </li>
           <li>

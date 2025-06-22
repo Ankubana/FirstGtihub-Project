@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
  import SELECTMOVE from "../Home/selectedMove.jsx";
 import react from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import logo from "../Find_move/Assets/blinker-logo.png"
 import { keyboard } from "@testing-library/user-event/dist/keyboard/index.js";
 
@@ -14,22 +14,32 @@ const [userdata,setUserData]=useState()
 const [inputvalue,setInputvalue]=useState("")
 const [submittedValue,setSubmittedValue]=useState()
 const [spinner,setSpinner]=useState("fas fa-spinner")
+const navigate=useNavigate()
  async function handlechange(event){
     const value=event.target.value
      setInputvalue(event.target.value)
     if (event.key ==='Enter') {
     const{data}=await axios.get(`https://omdbapi.com/?apikey=4cfe7eb4&s=${value}`)
-  setUserData(data) 
-  setSubmittedValue(inputvalue)
-  setSpinner("no_spinner")
+         setTimeout(()=>{
+         setUserData(data?.Search?.map((data)=>data))
+         setInputvalue(value)
+         navigate("/selectedMove", {
+         state:{inputvalue:value,check:1,Data:data }});
+              },2000)
     }
 }  
  async function SearchMove(){
-    
+     setSubmittedValue("search")
   const{data}=await axios.get(`https://omdbapi.com/?apikey=4cfe7eb4&s=${inputvalue}`)
-  setUserData(data) 
-  setSubmittedValue(inputvalue)
-  setSpinner("no_spinner")
+  
+   setTimeout(()=>{
+     setUserData(data?.Search?.map((data)=>data))
+      
+        
+         navigate("/selectedMove", {
+         state:{inputvalue:inputvalue,check:1,Data:data }});
+              },5000)
+         
 }
   const [isOpen, setIsOpen] = useState(false);
  
@@ -82,20 +92,26 @@ const [spinner,setSpinner]=useState("fas fa-spinner")
  </ul>
 </div>
  )}
+
 </nav>
      <div className="header"> 
-      
      <div className="searchInput__wrapper">
      <input  type="text" className="inputsearch"  value={inputvalue}  placeholder="Search by Fast" onChange={handlechange}  onKeyDown={handlechange}>
     </input>
   <button className="button_search"><FontAwesomeIcon icon="fas fa-search"  className="fa-search" onClick={SearchMove} /></button>    
     </div>
-  
  </div>
  </section>
+ 
  <div className="container">
  <div className="line_drown">
-  <div className="moving_line"></div>
+  {submittedValue?
+  <div className="moving_line">
+    
+  </div>
+  :null
+  }
+   
 </div>
   <script src="https://kit.fontawesome.com/ad0b70db15.js" crossOrigin="anonymous"></script>
 
@@ -104,9 +120,9 @@ const [spinner,setSpinner]=useState("fas fa-spinner")
  <section className="movies__project">
 <div data-v-66aecfa2="" data-v-040c1d60="" id="filter" className="content-wrapper justify-between">
 <h1 data-v-66aecfa2="" className="search-info">
-<span data-v-66aecfa2="" className="black-txt">Search results:</span><span className="text_purple">{submittedValue}</span>
+<span data-v-66aecfa2="" className="black-txt"></span><span className="text_purple"></span>
 </h1><div data-v-66aecfa2="" className="price-filter flex flex-col">
-<h2 data-v-66aecfa2=""><span data-v-66aecfa2=""className="black-txt" style={{marginRright:8}}>Price range:</span> $0 to $100,000 </h2>
+<h2 data-v-66aecfa2=""><span data-v-66aecfa2=""className="black-txt" style={{marginRright:8}}>range years:</span> 1990 to 2020 </h2>
 <div data-v-66aecfa2="" className="slider-wrapper"><div data-v-66aecfa2="" role="slider" aria-valuemin={0} aria-valuemax={100000} aria-orientation="horizontal" className="el-slider" aria-valuetext={0-100000} aria-label="slider between 0 and 100000">
  <div className="el-slider__runway">
 <div className="el-slider__bar" style={{width:'100%',left:'0%'}}></div>
@@ -121,11 +137,9 @@ const [spinner,setSpinner]=useState("fas fa-spinner")
     </div>
      </div>
  </section>
-   <FontAwesomeIcon icon={spinner} className={spinner}/>
-   <div className="project__select--move">
-  <SELECTMOVE selectMovie={userdata} inputval={submittedValue} />
+ 
   </div>
-  </div>
+
  </>
     )
 }
