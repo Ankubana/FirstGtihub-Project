@@ -67,7 +67,8 @@ const navigate=useNavigate()
     <a href=""className="link__hover--effect Link__hover-effect--black">Find your Movie</a>
    </li>
    <li >
-    <a href=""className="Nav__link--primary">Contact</a>
+<Link to="/contact" className="Nav__link--primary">Contact</Link>
+
    </li>
  </ul>
 
@@ -132,8 +133,8 @@ const navigate=useNavigate()
    <div className="el-tooltip el-slider__button" aria-describedby="e{-tooltip-9271" tabIndex={0}></div></div><div>
    <div className="el-slider__stop el-slider__marks-stop" style={{left:'0%'}}></div>
    <div className="el-slider__stop el-slider__marks-stop" style={{left:'100%'}}></div></div>
-   <div className="el-slider__marks"><div className="el-slider__marks-text" style={{left:'0%'}}>$0</div>
-   <div className="el-slider__marks-text" style={{left:'100%'}}>$100,000</div></div></div></div></div>
+   <div className="el-slider__marks"><div className="el-slider__marks-text" style={{left:'0%'}}></div>
+   <div className="el-slider__marks-text" style={{left:'100%'}}></div></div></div></div></div>
     </div>
      </div>
  </section>

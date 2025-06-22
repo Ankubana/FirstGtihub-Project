@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import image from "./FSE_img.png"
+import image from "../Home/undraw_movie-night_pkvp.png"
 const Project=({movieSelected,check})=>{
 const [moveHalf,setMoveHalf]=useState()
 const [search_move,setsearch_move]=useState(null)

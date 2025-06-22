@@ -72,7 +72,10 @@ import SelectMovie from "./selectedMove";
   </div>
   </div>
   </div>
-  
+    <div className="project__select--move">
+   <Project movieSelected={userData} check={movephoto}/>  
+   </div>
+
   </section>
     
   </>
