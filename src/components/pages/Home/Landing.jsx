@@ -49,9 +49,9 @@ import SelectMovie from "./selectedMove";
   <>
   
 <section className="landing">
+ 
    <div className="header" > 
-    
-    <h1 className="header__title">Australia's most awarded movie subscription platform</h1>
+     <h2 className="header__title">Australia's most awarded movie subscription platform</h2>
     <h2 className="header__sub-title">FIND YOUR DREAM MOVIE  WITH <span className="text_purple">KUBARAINBOW</span></h2>
      <div className="Input__wrapper">
     <div className="search">

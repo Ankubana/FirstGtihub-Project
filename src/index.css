@@ -271,7 +271,7 @@ position: relative;
 }
 .header{
  display:flex;
- flex-direction:column;
+ flex-wrap:column;
  width:100%;
  max-width:900px;
  align-items:center;
@@ -284,13 +284,16 @@ position: relative;
   padding:20px;
   color:rgb(10, 31, 68);
   font-size:24px;
-  margin:auto;
+text-align:center;
 }
 
 .header__title{
+  display: flex;
    color:rgb(96, 48, 177);   
   font-size:48px;
-   
+ text-align:center;
+  margin:auto;
+
 }
 .btn{
   display:flex;
